@@ -2,11 +2,13 @@
 name = "thatte-boot-efi"
 version = "0.1.0"
 edition = "2021"
-license = "Apache-2.0"
-
-[lib]
-crate-type = ["staticlib"]
 
 [dependencies]
-uefi = { version = "0.26.0", features = ["logger"] }
-log = "0.4.20"
+uefi = "0.28"
+
+# Build an executable for the UEFI target. Cargo will output .efi.
+[[bin]]
+name = "thatte-boot-efi"
+path = "src/main.rs"
+
+# (Optional — keep profiles in the WORKSPACE root to avoid the warning)

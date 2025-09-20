@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export PATH="$PATH:/sbin:/usr/sbin"
+
 
 TARGET="x86_64-unknown-uefi"
 BUILD_DIR="build"

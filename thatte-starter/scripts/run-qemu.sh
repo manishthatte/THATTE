@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export OVMF_CODE=/usr/share/OVMF/OVMF_CODE_4M.fd
+export OVMF_VARS=/usr/share/OVMF/OVMF_VARS_4M.fd
+
 # Locate OVMF firmware (Debian/Ubuntu/Nix typical paths)
 CANDIDATES_CODE=(
   "/usr/share/OVMF/OVMF_CODE.fd"
@@ -66,5 +69,5 @@ exec qemu-system-x86_64 \
   -drive if=pflash,format=raw,readonly=on,file="${OVMF_CODE}" \
   -drive if=pflash,format=raw,file="${OVMF_VARS}" \
   -drive format=raw,file="${ESP_IMG}",if=virtio \
-  -name "THATTE UEFI Hello" \
+  -name "Kalki has arrived !" \
   -no-reboot
