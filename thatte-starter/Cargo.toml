@@ -1,0 +1,17 @@
+[workspace]
+members = [
+  "boot/thatte-boot-efi"
+]
+resolver = "2"
+
+[profile.dev]
+panic = "abort"
+lto = false
+codegen-units = 256
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = true

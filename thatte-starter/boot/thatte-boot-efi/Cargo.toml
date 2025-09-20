@@ -1,0 +1,12 @@
+[package]
+name = "thatte-boot-efi"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+uefi = { version = "0.26.0", features = ["logger"] }
+log = "0.4.20"

@@ -1,0 +1,195 @@
+THATTE-ChatGPT
+├── RoadMap0.txt
+└── thatte-starter
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── LICENSE
+    ├── Makefile
+    ├── README.md
+    ├── boot
+    │   └── thatte-boot-efi
+    │       ├── Cargo.toml
+    │       └── src
+    │           └── lib.rs
+    ├── flake.nix
+    ├── rust-toolchain.toml
+    ├── scripts
+    │   ├── build.sh
+    │   └── run-qemu.sh
+    └── target
+        ├── .rustc_info.json
+        ├── CACHEDIR.TAG
+        ├── release
+        │   ├── .cargo-lock
+        │   ├── .fingerprint
+        │   │   ├── proc-macro2-668fc37cb1e2978d
+        │   │   │   ├── dep-lib-proc_macro2
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-proc_macro2
+        │   │   │   └── lib-proc_macro2.json
+        │   │   ├── proc-macro2-aea4eda520187dbb
+        │   │   │   ├── run-build-script-build-script-build
+        │   │   │   └── run-build-script-build-script-build.json
+        │   │   ├── proc-macro2-ce237ac9adecbb80
+        │   │   │   ├── build-script-build-script-build
+        │   │   │   ├── build-script-build-script-build.json
+        │   │   │   ├── dep-build-script-build-script-build
+        │   │   │   └── invoked.timestamp
+        │   │   ├── ptr_meta_derive-5e5de91f684bd7e9
+        │   │   │   ├── dep-lib-ptr_meta_derive
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-ptr_meta_derive
+        │   │   │   └── lib-ptr_meta_derive.json
+        │   │   ├── quote-64849cbdf7fcf6eb
+        │   │   │   ├── dep-lib-quote
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-quote
+        │   │   │   └── lib-quote.json
+        │   │   ├── syn-377b3c500511c0c5
+        │   │   │   ├── dep-lib-syn
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-syn
+        │   │   │   └── lib-syn.json
+        │   │   ├── syn-717ea0530b592bb6
+        │   │   │   ├── dep-lib-syn
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-syn
+        │   │   │   └── lib-syn.json
+        │   │   ├── syn-72e02da855f7c8e4
+        │   │   │   ├── run-build-script-build-script-build
+        │   │   │   └── run-build-script-build-script-build.json
+        │   │   ├── syn-a05023127f530060
+        │   │   │   ├── build-script-build-script-build
+        │   │   │   ├── build-script-build-script-build.json
+        │   │   │   ├── dep-build-script-build-script-build
+        │   │   │   └── invoked.timestamp
+        │   │   ├── uefi-macros-fc16ff3e193b9e45
+        │   │   │   ├── dep-lib-uefi_macros
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── lib-uefi_macros
+        │   │   │   └── lib-uefi_macros.json
+        │   │   └── unicode-ident-ee083538c7d4e5d3
+        │   │       ├── dep-lib-unicode_ident
+        │   │       ├── invoked.timestamp
+        │   │       ├── lib-unicode_ident
+        │   │       └── lib-unicode_ident.json
+        │   ├── build
+        │   │   ├── proc-macro2-aea4eda520187dbb
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── out
+        │   │   │   ├── output
+        │   │   │   ├── root-output
+        │   │   │   └── stderr
+        │   │   ├── proc-macro2-ce237ac9adecbb80
+        │   │   │   ├── build-script-build
+        │   │   │   ├── build_script_build-ce237ac9adecbb80
+        │   │   │   └── build_script_build-ce237ac9adecbb80.d
+        │   │   ├── syn-72e02da855f7c8e4
+        │   │   │   ├── invoked.timestamp
+        │   │   │   ├── out
+        │   │   │   ├── output
+        │   │   │   ├── root-output
+        │   │   │   └── stderr
+        │   │   └── syn-a05023127f530060
+        │   │       ├── build-script-build
+        │   │       ├── build_script_build-a05023127f530060
+        │   │       └── build_script_build-a05023127f530060.d
+        │   ├── deps
+        │   │   ├── libproc_macro2-668fc37cb1e2978d.rlib
+        │   │   ├── libproc_macro2-668fc37cb1e2978d.rmeta
+        │   │   ├── libptr_meta_derive-5e5de91f684bd7e9.so
+        │   │   ├── libquote-64849cbdf7fcf6eb.rlib
+        │   │   ├── libquote-64849cbdf7fcf6eb.rmeta
+        │   │   ├── libsyn-377b3c500511c0c5.rlib
+        │   │   ├── libsyn-377b3c500511c0c5.rmeta
+        │   │   ├── libsyn-717ea0530b592bb6.rlib
+        │   │   ├── libsyn-717ea0530b592bb6.rmeta
+        │   │   ├── libuefi_macros-fc16ff3e193b9e45.so
+        │   │   ├── libunicode_ident-ee083538c7d4e5d3.rlib
+        │   │   ├── libunicode_ident-ee083538c7d4e5d3.rmeta
+        │   │   ├── proc_macro2-668fc37cb1e2978d.d
+        │   │   ├── ptr_meta_derive-5e5de91f684bd7e9.d
+        │   │   ├── quote-64849cbdf7fcf6eb.d
+        │   │   ├── syn-377b3c500511c0c5.d
+        │   │   ├── syn-717ea0530b592bb6.d
+        │   │   ├── uefi_macros-fc16ff3e193b9e45.d
+        │   │   └── unicode_ident-ee083538c7d4e5d3.d
+        │   ├── examples
+        │   └── incremental
+        └── x86_64-unknown-uefi
+            ├── CACHEDIR.TAG
+            └── release
+                ├── .cargo-lock
+                ├── .fingerprint
+                │   ├── bit_field-03e6984d31836c86
+                │   │   ├── dep-lib-bit_field
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-bit_field
+                │   │   └── lib-bit_field.json
+                │   ├── bitflags-841b51b652a5359f
+                │   │   ├── dep-lib-bitflags
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-bitflags
+                │   │   └── lib-bitflags.json
+                │   ├── log-41853688ad061d84
+                │   │   ├── dep-lib-log
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-log
+                │   │   └── lib-log.json
+                │   ├── ptr_meta-0b9502b3b4c17220
+                │   │   ├── dep-lib-ptr_meta
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-ptr_meta
+                │   │   └── lib-ptr_meta.json
+                │   ├── thatte-boot-efi-81e8a3ea05c06569
+                │   │   ├── invoked.timestamp
+                │   │   └── output-lib-thatte_boot_efi
+                │   ├── ucs2-ce19b3185cfed015
+                │   │   ├── dep-lib-ucs2
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-ucs2
+                │   │   └── lib-ucs2.json
+                │   ├── uefi-44b4d5976a926716
+                │   │   ├── dep-lib-uefi
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-uefi
+                │   │   └── lib-uefi.json
+                │   ├── uefi-raw-52799fc678165d8b
+                │   │   ├── dep-lib-uefi_raw
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-uefi_raw
+                │   │   └── lib-uefi_raw.json
+                │   └── uguid-653e630196fda9ab
+                │       ├── dep-lib-uguid
+                │       ├── invoked.timestamp
+                │       ├── lib-uguid
+                │       └── lib-uguid.json
+                ├── build
+                ├── deps
+                │   ├── bit_field-03e6984d31836c86.d
+                │   ├── bitflags-841b51b652a5359f.d
+                │   ├── libbit_field-03e6984d31836c86.rlib
+                │   ├── libbit_field-03e6984d31836c86.rmeta
+                │   ├── libbitflags-841b51b652a5359f.rlib
+                │   ├── libbitflags-841b51b652a5359f.rmeta
+                │   ├── liblog-41853688ad061d84.rlib
+                │   ├── liblog-41853688ad061d84.rmeta
+                │   ├── libptr_meta-0b9502b3b4c17220.rlib
+                │   ├── libptr_meta-0b9502b3b4c17220.rmeta
+                │   ├── libucs2-ce19b3185cfed015.rlib
+                │   ├── libucs2-ce19b3185cfed015.rmeta
+                │   ├── libuefi-44b4d5976a926716.rlib
+                │   ├── libuefi-44b4d5976a926716.rmeta
+                │   ├── libuefi_raw-52799fc678165d8b.rlib
+                │   ├── libuefi_raw-52799fc678165d8b.rmeta
+                │   ├── libuguid-653e630196fda9ab.rlib
+                │   ├── libuguid-653e630196fda9ab.rmeta
+                │   ├── log-41853688ad061d84.d
+                │   ├── ptr_meta-0b9502b3b4c17220.d
+                │   ├── thatte_boot_efi-81e8a3ea05c06569.d
+                │   ├── ucs2-ce19b3185cfed015.d
+                │   ├── uefi-44b4d5976a926716.d
+                │   ├── uefi_raw-52799fc678165d8b.d
+                │   └── uguid-653e630196fda9ab.d
+                ├── examples
+                └── incremental
