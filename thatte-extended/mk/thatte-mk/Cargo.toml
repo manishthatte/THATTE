@@ -1,0 +1,17 @@
+[package]
+name = "thatte-mk"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[features]
+# default no_std build for kernel
+default = ["no_std"]
+no_std = []
+std = []
+
+[dependencies]
+# keep empty for now; add alloc/rustc-dep-of-std later as needed
+
+[dev-dependencies]
+proptest = "1.5"

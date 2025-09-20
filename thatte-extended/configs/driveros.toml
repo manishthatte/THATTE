@@ -1,0 +1,16 @@
+# vm-manager configuration
+[kvm]
+use_kvm_if_available = true
+
+[machine]
+memory_mb = 2048
+cpus = 4
+
+[paths]
+kernel = "build/vmlinuz"
+initrd = "build/initrd.img"
+disk = "build/driveros.img"
+share_dir = "."
+
+[network]
+host_ssh_forward = 2222

@@ -1,5 +1,42 @@
 THATTE-ChatGPT
+├── README.md
 ├── RoadMap0.txt
+├── file_structure.txt
+├── thatte-extended
+│   ├── Cargo.toml
+│   ├── LICENSE
+│   ├── Makefile
+│   ├── README.md
+│   ├── boot
+│   │   └── thatte-boot-efi
+│   │       ├── Cargo.toml
+│   │       └── src
+│   │           └── lib.rs
+│   ├── build
+│   │   └── driveros.img
+│   ├── configs
+│   │   └── driveros.toml
+│   ├── drv
+│   │   └── hello-compositor-fb
+│   │       ├── Cargo.toml
+│   │       └── src
+│   │           └── main.rs
+│   ├── flake.nix
+│   ├── mk
+│   │   └── thatte-mk
+│   │       ├── Cargo.toml
+│   │       └── src
+│   │           └── lib.rs
+│   ├── rust-toolchain.toml
+│   ├── scripts
+│   │   ├── driveros-make.sh
+│   │   ├── driveros-run.sh
+│   │   └── run-qemu.sh
+│   └── tools
+│       └── vm-manager
+│           ├── Cargo.toml
+│           └── src
+│               └── main.rs
 └── thatte-starter
     ├── Cargo.lock
     ├── Cargo.toml
@@ -10,7 +47,11 @@ THATTE-ChatGPT
     │   └── thatte-boot-efi
     │       ├── Cargo.toml
     │       └── src
-    │           └── lib.rs
+    │           └── main.rs
+    ├── build
+    │   ├── BOOTX64.EFI
+    │   ├── OVMF_VARS.fd
+    │   └── esp.img
     ├── flake.nix
     ├── rust-toolchain.toml
     ├── scripts
@@ -131,6 +172,11 @@ THATTE-ChatGPT
                 │   │   ├── invoked.timestamp
                 │   │   ├── lib-bitflags
                 │   │   └── lib-bitflags.json
+                │   ├── cfg-if-a40b528204904741
+                │   │   ├── dep-lib-cfg_if
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-cfg_if
+                │   │   └── lib-cfg_if.json
                 │   ├── log-41853688ad061d84
                 │   │   ├── dep-lib-log
                 │   │   ├── invoked.timestamp
@@ -141,15 +187,36 @@ THATTE-ChatGPT
                 │   │   ├── invoked.timestamp
                 │   │   ├── lib-ptr_meta
                 │   │   └── lib-ptr_meta.json
-                │   ├── thatte-boot-efi-81e8a3ea05c06569
+                │   ├── thatte-boot-efi-0fe8e327546bdd6e
                 │   │   ├── invoked.timestamp
+                │   │   └── output-bin-thatte-boot-efi
+                │   ├── thatte-boot-efi-7e57d5b4be337690
+                │   │   ├── bin-thatte-boot-efi
+                │   │   ├── bin-thatte-boot-efi.json
+                │   │   ├── dep-bin-thatte-boot-efi
+                │   │   └── invoked.timestamp
+                │   ├── thatte-boot-efi-81e8a3ea05c06569
+                │   │   ├── dep-lib-thatte_boot_efi
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-thatte_boot_efi
+                │   │   ├── lib-thatte_boot_efi.json
                 │   │   └── output-lib-thatte_boot_efi
+                │   ├── thatte-boot-efi-b2678118e57ebb50
+                │   │   ├── dep-lib-thatte_boot_efi
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-thatte_boot_efi
+                │   │   └── lib-thatte_boot_efi.json
                 │   ├── ucs2-ce19b3185cfed015
                 │   │   ├── dep-lib-ucs2
                 │   │   ├── invoked.timestamp
                 │   │   ├── lib-ucs2
                 │   │   └── lib-ucs2.json
                 │   ├── uefi-44b4d5976a926716
+                │   │   ├── dep-lib-uefi
+                │   │   ├── invoked.timestamp
+                │   │   ├── lib-uefi
+                │   │   └── lib-uefi.json
+                │   ├── uefi-ad017860f6ab2b28
                 │   │   ├── dep-lib-uefi
                 │   │   ├── invoked.timestamp
                 │   │   ├── lib-uefi
@@ -168,28 +235,47 @@ THATTE-ChatGPT
                 ├── deps
                 │   ├── bit_field-03e6984d31836c86.d
                 │   ├── bitflags-841b51b652a5359f.d
+                │   ├── cfg_if-a40b528204904741.d
                 │   ├── libbit_field-03e6984d31836c86.rlib
                 │   ├── libbit_field-03e6984d31836c86.rmeta
                 │   ├── libbitflags-841b51b652a5359f.rlib
                 │   ├── libbitflags-841b51b652a5359f.rmeta
+                │   ├── libcfg_if-a40b528204904741.rlib
+                │   ├── libcfg_if-a40b528204904741.rmeta
                 │   ├── liblog-41853688ad061d84.rlib
                 │   ├── liblog-41853688ad061d84.rmeta
                 │   ├── libptr_meta-0b9502b3b4c17220.rlib
                 │   ├── libptr_meta-0b9502b3b4c17220.rmeta
+                │   ├── libthatte_boot_efi-81e8a3ea05c06569.a
+                │   ├── libthatte_boot_efi-b2678118e57ebb50.rlib
+                │   ├── libthatte_boot_efi-b2678118e57ebb50.rmeta
                 │   ├── libucs2-ce19b3185cfed015.rlib
                 │   ├── libucs2-ce19b3185cfed015.rmeta
                 │   ├── libuefi-44b4d5976a926716.rlib
                 │   ├── libuefi-44b4d5976a926716.rmeta
+                │   ├── libuefi-ad017860f6ab2b28.rlib
+                │   ├── libuefi-ad017860f6ab2b28.rmeta
                 │   ├── libuefi_raw-52799fc678165d8b.rlib
                 │   ├── libuefi_raw-52799fc678165d8b.rmeta
                 │   ├── libuguid-653e630196fda9ab.rlib
                 │   ├── libuguid-653e630196fda9ab.rmeta
                 │   ├── log-41853688ad061d84.d
                 │   ├── ptr_meta-0b9502b3b4c17220.d
+                │   ├── thatte_boot_efi-7e57d5b4be337690.d
+                │   ├── thatte_boot_efi-7e57d5b4be337690.efi
+                │   ├── thatte_boot_efi-7e57d5b4be337690.pdb
                 │   ├── thatte_boot_efi-81e8a3ea05c06569.d
+                │   ├── thatte_boot_efi-b2678118e57ebb50.d
                 │   ├── ucs2-ce19b3185cfed015.d
                 │   ├── uefi-44b4d5976a926716.d
+                │   ├── uefi-ad017860f6ab2b28.d
                 │   ├── uefi_raw-52799fc678165d8b.d
                 │   └── uguid-653e630196fda9ab.d
                 ├── examples
-                └── incremental
+                ├── incremental
+                ├── libthatte_boot_efi.a
+                ├── libthatte_boot_efi.d
+                ├── libthatte_boot_efi.rlib
+                ├── thatte-boot-efi.d
+                ├── thatte-boot-efi.efi
+                └── thatte_boot_efi.pdb
