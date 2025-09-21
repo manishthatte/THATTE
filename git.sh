@@ -1,12 +1,12 @@
 #!/bin/bash
-# This script removes a large file from the entire Git history.
+# This script removes the esp.img file from the entire Git history.
 
-echo "Rewriting history to remove the large disk image..."
+echo "Rewriting history to remove the esp.img file..."
 
 # The core command to filter the history.
 # It iterates through every commit and removes the specified file.
 git filter-branch --force --index-filter \
-  'git rm --cached --ignore-unmatch thatte-extended/build/driveros.img' \
+  'git rm --cached --ignore-unmatch thatte-starter/build/esp.img' \
   --prune-empty --tag-name-filter cat -- --all
 
 echo "History rewritten."
